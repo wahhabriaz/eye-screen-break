@@ -57,5 +57,5 @@ desktop.ini
 tmp/
 temp/
 
-# Claude Code local settings
+# Local tool settings
 .claude/settings.local.json
