@@ -35,9 +35,14 @@ Eye Break is completely offline: no accounts, telemetry, analytics or network re
 detection only asks Windows *when* the last input happened. Nothing is recorded about what you type,
 your screen or your applications. Preferences, history and logs live in `%APPDATA%\EyeBreak`.
 
+## Download
+
+**[Download Eye Break for Windows](https://github.com/wahhabriaz/eye-screen-break/releases/latest)**
+(Windows 10/11, about 20 MB). On that page, click `EyeBreak-1.0.0-Setup.exe` under *Assets*.
+
 ## Install
 
-1. Download `EyeBreak-1.0.0-Setup.exe` and run it. It installs per user (no administrator rights needed).
+1. Download `EyeBreak-1.0.0-Setup.exe` from the [latest release](https://github.com/wahhabriaz/eye-screen-break/releases/latest) and run it. It installs per user (no administrator rights needed).
 2. Windows SmartScreen may warn that the publisher is unknown, because the executable is **not code-signed**.
    Choose **More info → Run anyway** only if you trust where you got the file. Eye Break does not try to
    bypass this protection.
