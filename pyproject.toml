@@ -1,0 +1,34 @@
+[project]
+name = "eye-break"
+version = "1.0.0"
+description = "Offline-first Windows desktop assistant that reminds you to rest your eyes."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.12,<3.14"
+authors = [{ name = "wahhabriaz" }]
+dependencies = [
+    "PySide6-Essentials>=6.8,<6.11",
+]
+
+[project.scripts]
+eye-break = "eye_break.app:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-qt>=4.4",
+    "pyinstaller>=6.11",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/eye_break"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+qt_api = "pyside6"
+addopts = "-q"

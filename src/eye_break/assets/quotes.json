@@ -1,0 +1,442 @@
+{
+ "quotes": [
+  {
+   "text": "Your eyes deserve a moment of rest.",
+   "category": "eyes"
+  },
+  {
+   "text": "Take care of the eyes through which you experience life.",
+   "category": "eyes"
+  },
+  {
+   "text": "Let your eyes wander somewhere far away for a moment.",
+   "category": "eyes"
+  },
+  {
+   "text": "Soft focus, slow breath, gentle eyes.",
+   "category": "eyes"
+  },
+  {
+   "text": "Your eyes have been working hard. Give them a short holiday.",
+   "category": "eyes"
+  },
+  {
+   "text": "Look up, look out, look far.",
+   "category": "eyes"
+  },
+  {
+   "text": "Blink slowly. Let your eyes feel the pause.",
+   "category": "eyes"
+  },
+  {
+   "text": "The screen will still be here. Let your eyes travel somewhere else.",
+   "category": "eyes"
+  },
+  {
+   "text": "Find the farthest thing you can see and rest your gaze there.",
+   "category": "eyes"
+  },
+  {
+   "text": "Give your eyes a view that is not made of pixels.",
+   "category": "eyes"
+  },
+  {
+   "text": "Close your eyes for a moment and notice how good it feels.",
+   "category": "eyes"
+  },
+  {
+   "text": "Distance is a gift to tired eyes.",
+   "category": "eyes"
+  },
+  {
+   "text": "Let the horizon do the work for a while.",
+   "category": "eyes"
+  },
+  {
+   "text": "Comfortable eyes make for a calmer mind.",
+   "category": "eyes"
+  },
+  {
+   "text": "Every glance away from the screen is a small kindness.",
+   "category": "eyes"
+  },
+  {
+   "text": "Your eyes are not machines. Treat them gently.",
+   "category": "eyes"
+  },
+  {
+   "text": "Relax your gaze. Nothing needs your focus right now.",
+   "category": "eyes"
+  },
+  {
+   "text": "Let the details blur for a moment. That is the point.",
+   "category": "eyes"
+  },
+  {
+   "text": "Your work can wait. Your health cannot.",
+   "category": "breaks"
+  },
+  {
+   "text": "A small pause today builds healthier habits tomorrow.",
+   "category": "breaks"
+  },
+  {
+   "text": "Look away from the screen and reconnect with the world.",
+   "category": "breaks"
+  },
+  {
+   "text": "Thirty seconds of stillness can reset an entire hour.",
+   "category": "breaks"
+  },
+  {
+   "text": "Pausing is not quitting. It is pacing.",
+   "category": "breaks"
+  },
+  {
+   "text": "Short breaks, often, beat long breaks, rarely.",
+   "category": "breaks"
+  },
+  {
+   "text": "This pause is part of the work, not a break from it.",
+   "category": "breaks"
+  },
+  {
+   "text": "Step back so you can see clearly again.",
+   "category": "breaks"
+  },
+  {
+   "text": "A break taken now is better than a break needed later.",
+   "category": "breaks"
+  },
+  {
+   "text": "The best time for a break is before you feel you need one.",
+   "category": "breaks"
+  },
+  {
+   "text": "Let this moment be unhurried.",
+   "category": "breaks"
+  },
+  {
+   "text": "Breathe in. Breathe out. That counts as progress.",
+   "category": "breaks"
+  },
+  {
+   "text": "Stand up, stretch, and come back fresh.",
+   "category": "breaks"
+  },
+  {
+   "text": "Nothing important will be lost in the next minute.",
+   "category": "breaks"
+  },
+  {
+   "text": "Give yourself permission to pause.",
+   "category": "breaks"
+  },
+  {
+   "text": "Every break is a small reset button.",
+   "category": "breaks"
+  },
+  {
+   "text": "You have earned this pause.",
+   "category": "breaks"
+  },
+  {
+   "text": "Healthy habits are built one small pause at a time.",
+   "category": "habits"
+  },
+  {
+   "text": "Consistency beats intensity, especially for rest.",
+   "category": "habits"
+  },
+  {
+   "text": "Good habits are quiet. They just keep showing up.",
+   "category": "habits"
+  },
+  {
+   "text": "The habit of resting is as valuable as the habit of working.",
+   "category": "habits"
+  },
+  {
+   "text": "Small routines, repeated daily, shape how you feel.",
+   "category": "habits"
+  },
+  {
+   "text": "Twenty minutes, twenty feet, twenty seconds. Easy to remember, easy to do.",
+   "category": "habits"
+  },
+  {
+   "text": "A reminder is only useful if you listen to it. Thank you for listening.",
+   "category": "habits"
+  },
+  {
+   "text": "Build a rhythm your body can keep up with.",
+   "category": "habits"
+  },
+  {
+   "text": "Today's small choices become tomorrow's routines.",
+   "category": "habits"
+  },
+  {
+   "text": "Make rest automatic, not occasional.",
+   "category": "habits"
+  },
+  {
+   "text": "You do not need willpower for this. You just need to pause.",
+   "category": "habits"
+  },
+  {
+   "text": "Taking breaks is a skill. You are practising it right now.",
+   "category": "habits"
+  },
+  {
+   "text": "Healthy screen habits start with moments like this.",
+   "category": "habits"
+  },
+  {
+   "text": "Habits are easier to keep than to rebuild. Keep this one.",
+   "category": "habits"
+  },
+  {
+   "text": "Rest is part of doing good work.",
+   "category": "rest"
+  },
+  {
+   "text": "Rest is not a reward. It is a requirement.",
+   "category": "rest"
+  },
+  {
+   "text": "A rested mind solves problems a tired one cannot see.",
+   "category": "rest"
+  },
+  {
+   "text": "Stillness is productive too.",
+   "category": "rest"
+  },
+  {
+   "text": "Recovery is where the effort pays off.",
+   "category": "rest"
+  },
+  {
+   "text": "You are allowed to slow down.",
+   "category": "rest"
+  },
+  {
+   "text": "Quiet moments refill what busy hours drain.",
+   "category": "rest"
+  },
+  {
+   "text": "Rest well now so you can focus well later.",
+   "category": "rest"
+  },
+  {
+   "text": "Let your shoulders drop and your jaw relax.",
+   "category": "rest"
+  },
+  {
+   "text": "Doing nothing for a moment is doing something for yourself.",
+   "category": "rest"
+  },
+  {
+   "text": "Even machines need to cool down.",
+   "category": "rest"
+  },
+  {
+   "text": "Pause long enough to notice how you feel.",
+   "category": "rest"
+  },
+  {
+   "text": "Calm is a resource. Take a little now.",
+   "category": "rest"
+  },
+  {
+   "text": "There is strength in stepping back.",
+   "category": "rest"
+  },
+  {
+   "text": "Productivity is not measured by how long you ignore your health.",
+   "category": "balance"
+  },
+  {
+   "text": "You are more than your to-do list.",
+   "category": "balance"
+  },
+  {
+   "text": "Work is important. So are you.",
+   "category": "balance"
+  },
+  {
+   "text": "The world beyond the screen is still there. Go say hello.",
+   "category": "balance"
+  },
+  {
+   "text": "Balance is not found. It is made, one pause at a time.",
+   "category": "balance"
+  },
+  {
+   "text": "Take care of yourself the way you take care of your work.",
+   "category": "balance"
+  },
+  {
+   "text": "Your best work comes from a well-cared-for you.",
+   "category": "balance"
+  },
+  {
+   "text": "Look out the window. Life is happening there too.",
+   "category": "balance"
+  },
+  {
+   "text": "Unplug for a moment and plug back into yourself.",
+   "category": "balance"
+  },
+  {
+   "text": "Deadlines come and go. Your well-being stays with you.",
+   "category": "balance"
+  },
+  {
+   "text": "Make room for the things that keep you well.",
+   "category": "balance"
+  },
+  {
+   "text": "A sustainable pace is the fastest pace over time.",
+   "category": "balance"
+  },
+  {
+   "text": "Some things matter more than the next email.",
+   "category": "balance"
+  },
+  {
+   "text": "Be as generous with your rest as you are with your effort.",
+   "category": "balance"
+  },
+  {
+   "text": "Sustainable productivity starts with a sustainable you.",
+   "category": "productivity"
+  },
+  {
+   "text": "Focus is renewable. Breaks are how you renew it.",
+   "category": "productivity"
+  },
+  {
+   "text": "Fresh eyes catch what tired eyes miss.",
+   "category": "productivity"
+  },
+  {
+   "text": "Working longer is not the same as working better.",
+   "category": "productivity"
+  },
+  {
+   "text": "A clear head is the best productivity tool you own.",
+   "category": "productivity"
+  },
+  {
+   "text": "Great work is a marathon, not a sprint.",
+   "category": "productivity"
+  },
+  {
+   "text": "Short pauses keep long days manageable.",
+   "category": "productivity"
+  },
+  {
+   "text": "The quality of your attention matters more than the quantity of your hours.",
+   "category": "productivity"
+  },
+  {
+   "text": "Come back to your work with a new perspective.",
+   "category": "productivity"
+  },
+  {
+   "text": "Smart work includes smart rest.",
+   "category": "productivity"
+  },
+  {
+   "text": "Momentum survives a short break. Fatigue does not go away without one.",
+   "category": "productivity"
+  },
+  {
+   "text": "Recharge now; you will thank yourself this afternoon.",
+   "category": "productivity"
+  },
+  {
+   "text": "Progress loves a rested mind.",
+   "category": "productivity"
+  },
+  {
+   "text": "Better focus comes after a moment of letting go.",
+   "category": "productivity"
+  },
+  {
+   "text": "Your body has been sitting still. Give it a reason to move.",
+   "category": "wellbeing"
+  },
+  {
+   "text": "Roll your shoulders back and take a deep breath.",
+   "category": "wellbeing"
+  },
+  {
+   "text": "Notice your posture. Then gently improve it.",
+   "category": "wellbeing"
+  },
+  {
+   "text": "Have a sip of water while you are here.",
+   "category": "wellbeing"
+  },
+  {
+   "text": "Unclench your jaw. Relax your hands.",
+   "category": "wellbeing"
+  },
+  {
+   "text": "A few deep breaths can change the tone of your whole day.",
+   "category": "wellbeing"
+  },
+  {
+   "text": "Kindness to yourself counts as self-care.",
+   "category": "wellbeing"
+  },
+  {
+   "text": "Feel your feet on the floor for a moment.",
+   "category": "wellbeing"
+  },
+  {
+   "text": "Stretch your arms up high and let them fall slowly.",
+   "category": "wellbeing"
+  },
+  {
+   "text": "Your well-being is worth a minute of your time.",
+   "category": "wellbeing"
+  },
+  {
+   "text": "Move a little. Your body will appreciate it.",
+   "category": "wellbeing"
+  },
+  {
+   "text": "Check in with yourself: how are you feeling right now?",
+   "category": "wellbeing"
+  },
+  {
+   "text": "Breathe slowly enough to notice it.",
+   "category": "wellbeing"
+  },
+  {
+   "text": "Look after your body; it carries all of your work.",
+   "category": "wellbeing"
+  },
+  {
+   "text": "Small acts of care add up over a lifetime.",
+   "category": "wellbeing"
+  }
+ ],
+ "instructions": [
+  "Look at something about 20 feet (6 metres) away and relax your eyes.",
+  "Blink slowly and naturally a few times.",
+  "Close your eyes gently and take three slow breaths.",
+  "Look out of a window and let your eyes rest on the far distance.",
+  "Relax your shoulders and let your hands rest in your lap.",
+  "Stand up and stretch your arms above your head.",
+  "Step away from the screen for a moment.",
+  "Slowly look up, down, left and right, then rest your gaze far away.",
+  "Roll your shoulders backwards a few times.",
+  "Unclench your jaw and soften the muscles around your eyes.",
+  "Take a sip of water.",
+  "Gently turn your head from side to side."
+ ]
+}
