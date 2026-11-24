@@ -1,0 +1,4 @@
+{"screens": [
+  {"name": "Primary", "x": 0, "y": 0, "width": 1920, "height": 1080, "logicalDpi": 96},
+  {"name": "Secondary-150pct", "x": 1920, "y": 0, "width": 2560, "height": 1440, "logicalDpi": 96, "dpr": 1.5}
+]}
