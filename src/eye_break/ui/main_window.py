@@ -48,8 +48,7 @@ class MainWindow(QMainWindow):
         self.setWindowIcon(icons.app_icon())
         self.setMinimumSize(QSize(940, 640))
         self.resize(1080, 760)
-        self.tray_hint_shown = False
-        self.on_hide_to_tray = None  # set by the app to show a one-time notice
+        self.on_hide_to_tray = None  # set by the app: shows a one-time notice and releases the window
 
         root = QWidget()
         root.setObjectName("Root")
@@ -174,6 +173,5 @@ class MainWindow(QMainWindow):
         """Closing the window keeps the app running in the tray."""
         event.ignore()
         self.hide()
-        if self.on_hide_to_tray and not self.tray_hint_shown:
-            self.tray_hint_shown = True
+        if self.on_hide_to_tray:
             self.on_hide_to_tray()

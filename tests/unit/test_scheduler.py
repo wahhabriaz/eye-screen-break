@@ -357,3 +357,10 @@ def test_tray_snooze_while_working_pushes_break_back():
     run(s, clock, 100)
     assert s.snooze()  # snoozing again never shortens the wait
     assert s.remaining == pytest.approx(300)
+
+
+def test_scaled_sleep_gap_for_dev_clock():
+    s, clock, rec = make()
+    s.sleep_gap = 20 * 120  # a 120x dev clock advances 120 s per real second
+    run(s, clock, 600, step=120)
+    assert s.state == State.ON_BREAK

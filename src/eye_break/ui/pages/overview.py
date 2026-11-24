@@ -113,7 +113,7 @@ class OverviewPage(Page):
         self.finish()
 
         m.ticked.connect(self.refresh_live)
-        m.state_changed.connect(lambda _s: self.refresh_live())
+        m.state_changed.connect(self.refresh_live)  # bound slot: auto-disconnected when the page is destroyed
         m.stats_changed.connect(self.refresh_stats)
         ctx.settings_changed.connect(self.refresh_schedule)
         self.refresh_live()
@@ -131,7 +131,7 @@ class OverviewPage(Page):
         else:
             self.pause_menu.exec(self.pause_btn.mapToGlobal(self.pause_btn.rect().bottomLeft()))
 
-    def refresh_live(self) -> None:
+    def refresh_live(self, *_args) -> None:
         if not self.isVisible():
             return  # no repaint work while the window is hidden
         m = self.ctx.manager

@@ -1,6 +1,10 @@
 """Full application wiring (real services, real SQLite/JSON on disk; Qt offscreen)."""
 
+import os
+import subprocess
+import sys
 import uuid
+from pathlib import Path
 
 import pytest
 from PySide6.QtWidgets import QPushButton
@@ -9,7 +13,7 @@ from eye_break.app import EyeBreakApp, parse_args
 from eye_break.core.scheduler import State
 from eye_break.ui.main_window import NAV
 from eye_break.utils import paths
-from eye_break.utils.single_instance import SingleInstance
+from eye_break.utils.single_instance import SingleInstance, send
 
 
 @pytest.fixture()
@@ -32,14 +36,33 @@ def make_app(tmp_path, qapp):
     paths.set_data_dir(None)
 
 
-def test_single_instance_enforced(qtbot):
+CLIENT = """
+import sys
+from PySide6.QtCore import QCoreApplication
+from eye_break.utils.single_instance import SingleInstance
+app = QCoreApplication([])
+print(SingleInstance(sys.argv[1]).is_primary(sys.argv[2].encode()))
+"""
+
+
+def run_second_instance(name: str, message: str) -> subprocess.Popen:
+    env = {**os.environ, "PYTHONPATH": str(Path(__file__).resolve().parents[2] / "src")}
+    return subprocess.Popen([sys.executable, "-c", CLIENT, name, message], env=env,
+                            stdout=subprocess.PIPE, text=True)
+
+
+def test_single_instance_enforced_across_processes(qtbot):
     name = f"EyeBreakTest-{uuid.uuid4().hex}"
     first = SingleInstance(name)
     assert first.is_primary()
-    second = SingleInstance(name)
-    with qtbot.waitSignal(first.activation_requested, timeout=3000):
-        assert not second.is_primary()
+    with qtbot.waitSignal(first.activation_requested, timeout=10000):
+        proc = run_second_instance(name, "show")
+    assert proc.communicate(timeout=10)[0].strip() == "False"  # the second launch defers to the first
+    with qtbot.waitSignal(first.quit_requested, timeout=10000):
+        proc = run_second_instance(name, "quit")
+    proc.communicate(timeout=10)
     first.close()
+    assert not send(name, b"show")  # nobody listening any more
     third = SingleInstance(name)
     assert third.is_primary()  # the name is free again after the first instance exits
     third.close()
@@ -109,12 +132,21 @@ def test_tray_menu_actions(make_app):
     assert "Meeting mode until" in tray.status_text()
 
 
-def test_close_hides_to_tray(make_app, qtbot):
+def test_close_hides_to_tray_and_releases_window(make_app, qtbot):
     app = make_app()
-    app.window.show()
-    app.window.close()
-    assert not app.window.isVisible()
+    window = app.window
+    window.show()
+    window.close()
+    assert not window.isVisible()
+    assert app._window is None  # released to keep the background footprint small
+    # long-lived signals keep firing safely after the pages are destroyed
+    qtbot.wait(50)
+    app.manager.tick()
+    app.manager.pause()
+    app.manager.resume()
+    app.ctx.update(work_minutes=45)
     assert app.manager._timer is not None  # app still running
+    assert app.window is not window  # reopening builds a fresh dashboard
 
 
 def test_live_settings_change_without_restart(make_app):

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import logging
 import os
 import sys
@@ -28,7 +29,7 @@ from eye_break.ui.overlay import OverlayController
 from eye_break.ui.system_tray import SystemTray
 from eye_break.ui.themes import ThemeManager
 from eye_break.utils import paths
-from eye_break.utils.single_instance import SingleInstance, server_name
+from eye_break.utils.single_instance import SingleInstance, send, server_name
 
 log = logging.getLogger("eye_break")
 
@@ -39,6 +40,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--data-dir", help="use a different data directory (testing)")
     parser.add_argument("--dev-speed", type=float, default=float(os.environ.get("EYE_BREAK_DEV_SPEED", "1")),
                         help="development only: run the clock N times faster")
+    parser.add_argument("--quit", action="store_true", help="ask a running instance to exit, then exit")
     parser.add_argument("--version", action="version", version=__version__)
     args, _unknown = parser.parse_known_args(argv)
     return args
@@ -77,13 +79,29 @@ class EyeBreakApp:
             log.warning("Development clock running at %sx speed", args.dev_speed)
         self.manager = BreakManager(self.settings, self.stats, self.quotes, self.notifier, self.overlay, clock)
         self.ctx = AppContext(self.settings, self.manager, self.stats, self.quotes, self.theme)
-        self.window = MainWindow(self.ctx)
+        self._window: MainWindow | None = None
+        self._tray_hint_shown = False
         self.tray = SystemTray(self.ctx, self.open_dashboard, self.quit)
         self.notifier.tray = self.tray
-        self.window.on_hide_to_tray = lambda: self.notifier.notify(
-            APP_NAME, "Still running in the system tray. Right-click the icon for quick actions.")
         self.qt.aboutToQuit.connect(self.shutdown)
         self._sync_startup_registration()
+
+    @property
+    def window(self) -> MainWindow:
+        """The dashboard is built on demand and released when closed, keeping the tray footprint small."""
+        if self._window is None:
+            self._window = MainWindow(self.ctx)
+            self._window.on_hide_to_tray = self._on_window_hidden
+        return self._window
+
+    def _on_window_hidden(self) -> None:
+        if not self._tray_hint_shown:
+            self._tray_hint_shown = True
+            self.notifier.notify(APP_NAME, "Still running in the system tray. Right-click the icon for quick actions.")
+        window, self._window = self._window, None
+        if window is not None:
+            self.ctx.flush()
+            window.deleteLater()
 
     def _sync_startup_registration(self) -> None:
         """Keep the Run entry pointing at the current executable if the user enabled it."""
@@ -132,7 +150,11 @@ def main(argv: list[str] | None = None) -> int:
     qt_app.setWindowIcon(icons.app_icon())
     qt_app.setStyle("Fusion")  # consistent base for the custom stylesheet
 
-    suffix = "-dev" if args.data_dir else ""
+    # A separate data folder is a separate instance (tests, dev runs); the default folder has no suffix.
+    suffix = "-" + hashlib.sha1(str(paths.data_dir()).lower().encode()).hexdigest()[:10] if args.data_dir else ""
+    if args.quit:
+        send(server_name(suffix), b"quit")
+        return 0
     instance = SingleInstance(server_name(suffix))
     if not instance.is_primary():
         log.info("Another instance is running; asked it to show its window")
@@ -140,6 +162,7 @@ def main(argv: list[str] | None = None) -> int:
 
     app = EyeBreakApp(qt_app, args)
     instance.activation_requested.connect(app.open_dashboard)
+    instance.quit_requested.connect(app.quit)
     # Autostart passes --minimized; it is honoured when "Start minimised" is on. Manual launches show the window.
     start_minimized = args.minimized and app.settings.settings.start_minimized
     QTimer.singleShot(0, lambda: app.start(minimized=start_minimized))

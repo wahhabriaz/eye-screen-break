@@ -14,6 +14,7 @@ from eye_break.core.scheduler import (
     ACTIVE_STATES,
     BreakInfo,
     Outcome,
+    SLEEP_GAP_SECONDS,
     Scheduler,
     SchedulerConfig,
     State,
@@ -71,6 +72,7 @@ class BreakManager(QObject):
             clock=self.clock,
             config=SchedulerConfig.from_settings(settings.settings),
             listener=self._on_event,
+            sleep_gap=SLEEP_GAP_SECONDS * getattr(self.clock, "speed", 1.0),
         )
         self._unflushed = 0.0
         self._since_flush = 0.0

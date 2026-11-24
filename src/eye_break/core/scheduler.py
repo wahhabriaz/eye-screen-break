@@ -101,6 +101,7 @@ class Scheduler:
     clock: Clock
     config: SchedulerConfig = field(default_factory=SchedulerConfig)
     listener: Callable[..., Any] | None = None
+    sleep_gap: float = SLEEP_GAP_SECONDS  # scaled up by the development clock
 
     def __post_init__(self) -> None:
         self.state: State = State.WORKING
@@ -165,7 +166,7 @@ class Scheduler:
         now = self.clock.monotonic()
         delta = max(0.0, now - self._last)
         self._last = now
-        if delta > SLEEP_GAP_SECONDS:
+        if delta > self.sleep_gap:
             self._on_sleep_gap(delta)
             delta = 0.0
 
@@ -199,7 +200,7 @@ class Scheduler:
             return
         if idle_seconds >= self.config.idle_threshold:
             # The idle threshold window was not real work: give it back.
-            credit = min(idle_seconds, self.config.idle_threshold + SLEEP_GAP_SECONDS, self.work_elapsed)
+            credit = min(idle_seconds, self.config.idle_threshold + self.sleep_gap, self.work_elapsed)
             self.work_elapsed -= credit
             self.active_pending -= credit
             self._resume_state = self.state
