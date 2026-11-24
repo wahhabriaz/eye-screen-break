@@ -8,7 +8,7 @@ and a practical relaxation tip, then gets out of the way on its own.
 
 ## Features
 
-- **Full-screen break overlay** on every monitor: 80% black by default (adjustable 50–100%), with
+- **Full-screen break overlay** on every monitor: 90% black by default (adjustable 50–100%), with
   fully opaque text and controls, smooth fades, and correct handling of DPI scaling and monitors
   being plugged in or removed.
 - **Flexible schedule**: 20/30/45/60/90/120-minute presets or any custom interval from 1 to 180 minutes;
@@ -24,7 +24,7 @@ and a practical relaxation tip, then gets out of the way on its own.
   presentation.
 - **Statistics** stored locally in SQLite: completed, skipped, snoozed and interrupted breaks, break
   time, detected active time, completion rate, streaks, charts, CSV export and one-click deletion.
-- **106 original quotations** in 7 categories, plus your own; rotation avoids repeats.
+- **107 built-in quotations** in 7 categories, plus your own; rotation avoids repeats.
 - **Light, dark and system themes**, 6 accent colours, a live overlay preview and a full-screen preview.
 - **Optional** pre-break notifications, soft sounds, and water/stand/stretch/posture/walk reminders.
 - **Start with Windows** (per user, no administrator rights) and a single running instance.

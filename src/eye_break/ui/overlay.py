@@ -40,7 +40,7 @@ TEXT_SUBTLE = "#8E959D"
 
 @dataclass
 class OverlayOptions:
-    opacity: int = 80
+    opacity: int = 90
     font_scale: int = 100
     countdown_size: int = 96
     show_quote: bool = True

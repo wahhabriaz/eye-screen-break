@@ -12,7 +12,7 @@ def test_defaults():
     s = Settings()
     assert s.work_minutes == 30
     assert s.break_seconds == 30
-    assert s.overlay_opacity == 80
+    assert s.overlay_opacity == 90
     assert all(not r["enabled"] for r in s.reminders.values())
     assert not s.sound_break_start
 
@@ -51,7 +51,7 @@ def test_invalid_fields_fall_back_to_defaults():
     assert s.work_minutes == 30
     assert s.break_seconds == 30
     assert s.mode == "gentle"
-    assert s.overlay_opacity == 80
+    assert s.overlay_opacity == 90
     assert s.sound_break_end is False
     assert s.custom_quotes == ["Rest well"]
     assert s.quote_categories == ["eyes"]

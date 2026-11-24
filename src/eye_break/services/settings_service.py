@@ -48,7 +48,7 @@ class Settings:
     sound_break_end: bool = False
     theme: str = "system"
     accent: str = "teal"
-    overlay_opacity: int = 80
+    overlay_opacity: int = 90
     overlay_font_scale: int = 100
     countdown_size: int = 96
     show_quotes: bool = True

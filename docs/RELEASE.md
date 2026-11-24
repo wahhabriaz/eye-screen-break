@@ -10,7 +10,7 @@ First public release.
 - Idle, lock and sleep detection; reliable elapsed-time scheduling.
 - System tray with pause, snooze and meeting mode; optional automatic pause during full-screen apps.
 - Local statistics with charts, streaks, CSV export and deletion.
-- 106 original quotations in 7 categories, plus your own.
+- 107 built-in quotations in 7 categories, plus your own.
 - Light, dark and system themes; 6 accent colours; live overlay preview.
 - Optional notifications, soft sounds and secondary health reminders.
 - Per-user start with Windows; single instance; per-user installer and uninstaller.

@@ -61,7 +61,7 @@ def overlay_shot(out: Path, size=(1600, 900)) -> None:
     for x, y, ww, hh in ((120, 90, 760, 540), (700, 260, 760, 560)):
         p.fillRect(x, y, ww, hh, QColor("#F4F5F7"))
         p.fillRect(x, y, ww, 34, QColor("#D9DDE2"))
-    p.fillRect(0, 0, w, h, QColor(0, 0, 0, round(255 * 0.8)))
+    p.fillRect(0, 0, w, h, QColor(0, 0, 0, round(255 * 0.9)))
     view = BreakView(duration=30, quote="Your work can wait. Your health cannot.",
                      instruction="Look at something about 20 feet (6 metres) away and relax your eyes.",
                      snoozes_left=None)
